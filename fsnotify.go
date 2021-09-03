@@ -27,6 +27,7 @@ type Op uint32
 const (
 	Create Op = 1 << iota
 	Write
+	Close
 	Remove
 	Rename
 	Chmod
@@ -44,6 +45,9 @@ func (op Op) String() string {
 	}
 	if op&Write == Write {
 		buffer.WriteString("|WRITE")
+	}
+	if op&Close == Close {
+		buffer.WriteString("|CLOSE")
 	}
 	if op&Rename == Rename {
 		buffer.WriteString("|RENAME")
