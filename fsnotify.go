@@ -35,8 +35,10 @@ type Op uint32
 const (
 	Create Op = 1 << iota
 	Write
+	CloseWrite
 	Remove
 	Rename
+	RenameCreate
 	Chmod
 )
 
@@ -57,8 +59,14 @@ func (op Op) String() string {
 	if op.Has(Write) {
 		b.WriteString("|WRITE")
 	}
+	if op.Has(CloseWrite) {
+		b.WriteString("|CLOSE_WRITE")
+	}
 	if op.Has(Rename) {
 		b.WriteString("|RENAME")
+	}
+	if op.Has(RenameCreate) {
+		b.WriteString("|RENAME_CREATE")
 	}
 	if op.Has(Chmod) {
 		b.WriteString("|CHMOD")
