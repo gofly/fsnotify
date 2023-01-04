@@ -16,7 +16,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fsnotify/fsnotify/internal"
+	"github.com/gofly/fsnotify/internal"
 )
 
 // Set soft open file limit to the maximum; on e.g. OpenBSD it's 512/1024.
@@ -914,7 +914,8 @@ func TestAdd(t *testing.T) {
 }
 
 // TODO: should also check internal state is correct/cleaned up; e.g. no
-//       left-over file descriptors or whatnot.
+//
+//	left-over file descriptors or whatnot.
 func TestRemove(t *testing.T) {
 	t.Run("works", func(t *testing.T) {
 		t.Parallel()

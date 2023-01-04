@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fsnotify/fsnotify/internal"
+	"github.com/gofly/fsnotify/internal"
 )
 
 type testCase struct {
@@ -428,8 +428,8 @@ func (e Events) copy() Events {
 
 // Create a new Events list from a string; for example:
 //
-//   CREATE        path
-//   CREATE|WRITE  path
+//	CREATE        path
+//	CREATE|WRITE  path
 //
 // Every event is one line, and any whitespace between the event and path are
 // ignored. The path can optionally be surrounded in ". Anything after a "#" is
@@ -437,12 +437,12 @@ func (e Events) copy() Events {
 //
 // Platform-specific tests can be added after GOOS:
 //
-//   # Tested if nothing else matches
-//   CREATE   path
+//	# Tested if nothing else matches
+//	CREATE   path
 //
-//   # Windows-specific test.
-//   windows:
-//     WRITE    path
+//	# Windows-specific test.
+//	windows:
+//	  WRITE    path
 //
 // You can specify multiple platforms with a comma (e.g. "windows, linux:").
 // "kqueue" is a shortcut for all kqueue systems (BSD, macOS).
